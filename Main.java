@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class Calculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
@@ -10,9 +10,22 @@ public class Main {
         System.out.println("Enter the second number: ");
         double num2 = scanner.nextDouble();
         
-        double sum = num1 + num2;
+        System.out.println("Choose an operation (+ for addition, - for subtraction): ");
+        char operation = scanner.next().charAt(0);
         
-        System.out.println("The sum is: " + sum);
+        double result;
+        
+        if (operation == '+') {
+            result = num1 + num2;
+        } else if (operation == '-') {
+            result = num1 - num2;
+        } else {
+            System.out.println("Invalid operation. Please use + or -.");
+            scanner.close();
+            return;
+        }
+        
+        System.out.println("The result is: " + result);
         
         scanner.close();
     }
