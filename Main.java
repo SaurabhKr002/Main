@@ -10,19 +10,25 @@ public class Calculator {
         System.out.println("Enter the second number: ");
         double num2 = scanner.nextDouble();
         
-        System.out.println("Choose an operation (+ for addition, - for subtraction): ");
+        System.out.println("Choose an operation (+ for addition, - for subtraction, * for multiplication): ");
         char operation = scanner.next().charAt(0);
         
         double result;
         
-        if (operation == '+') {
-            result = num1 + num2;
-        } else if (operation == '-') {
-            result = num1 - num2;
-        } else {
-            System.out.println("Invalid operation. Please use + or -.");
-            scanner.close();
-            return;
+        switch (operation) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            default:
+                System.out.println("Invalid operation. Please use +, -, or *.");
+                scanner.close();
+                return;
         }
         
         System.out.println("The result is: " + result);
@@ -30,4 +36,3 @@ public class Calculator {
         scanner.close();
     }
 }
-
